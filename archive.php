@@ -11,18 +11,18 @@ get_header();
 		<h1 class="heading-title"><?php the_archive_title(); ?></h1>
 		<?php if ( have_posts() ) : ?>
 			<ol>
-				<?php while( have_posts() ) : the_post(); ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 				<li>
-          <a href="news.html">
-            <div class="news-list-img">
-              <img src="img/photo-thumb01.jpg" width="120" alt="クリスマスイベントを開催しました">
-            </div>
-            <div class="news-list-info">
-              <time datetime="<?php the_time( 'Y-m-d' ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></time>
-              <p class="news-list-title"><?php the_title(); ?></p>
-            </div>
-          </a>
-        </li>
+					<a href="<?php the_permalink(); ?>">
+						<div class="news-list-img">
+							<?php the_post_thumbnail(); ?>
+						</div>
+						<div class="news-list-info">
+							<time datetime="<?php the_time( 'Y-m-d' ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></time>
+							<p class="news-list-title"><?php the_title(); ?></p>
+						</div>
+					</a>
+				</li>
 			<?php endwhile; ?>
 			</ol>
 		<?php else : ?>
