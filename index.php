@@ -35,11 +35,12 @@
 		'posts_per_page' => 4
 	);
 	$posts = get_posts( $args );
-	var_dump( $posts );
+	global $post;
+
+ 	if ( $posts ) :
 	?>
-	<?php if ( have_posts() ) : ?>
 	<ul class="top-list">
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php foreach ( $posts as $post ) : setup_postdata( $post ); ?>
 		<li>
 			<a href="<?php the_permalink(); ?>">
 				<div class="top-list_img">
@@ -51,7 +52,7 @@
 				</div>
 			</a>
 		</li>
-		<?php endwhile; ?>
+	<?php endforeach; ?>
 	</ul>
 	<?php endif; ?>
 </section>

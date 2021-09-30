@@ -502,12 +502,18 @@ main {
 }
 
 .pagetop {
+	/*background: url(../img/arrow.png) no-repeat center center/contain;*/
   bottom: 30px;
   height: 40px;
   position: fixed;
   right: 30px;
   width: 40px;
   z-index: 99;
+}
+
+.pagetop img {
+	height: auto;
+	width: 100%;
 }
 
 footer {
